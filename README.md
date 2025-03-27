@@ -51,10 +51,10 @@ cd shieldflow-sdk
 
 Это опубликует артефакты:
 
-- `telemetry-android-sdk`
-- `telemetry-core-android-sdk`
-- `telemetry-network-android-sdk`
-- `telemetry-assert-android-sdk`
+- `shieldflow-android-sdk`
+- `shieldflow-core-android-sdk`
+- `shieldflow-network-android-sdk`
+- `shieldflow-assert-android-sdk`
 
 в ваш локальный Maven-репозиторий.
 
@@ -73,5 +73,5 @@ cd TMDB-Movie-main
 
 ## Проверка
 
-- Если сборка прошла успешно, `telemetry-*` библиотеки будут использоваться внутри проекта без ошибок.
+- Если сборка прошла успешно, `shieldflow-*` библиотеки будут использоваться внутри проекта без ошибок.
 
