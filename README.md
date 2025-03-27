@@ -17,7 +17,7 @@
 
 - `TMDB-Movie-main/` — Android-приложение на примере которого показывается интеграция библиотеки
 - `shieldflow-sdk/` — SDK, публикуемый локально в `mavenLocal`
-- `analyse_shield_serv.py/`
+- `analyse_shield_serv.py`
 
 ---
 
