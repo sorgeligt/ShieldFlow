@@ -8,6 +8,8 @@ import coil.decode.SvgDecoder
 import coil.util.DebugLogger
 import com.sorgeligt.shieldflow.Telemetry
 import com.sorgeligt.shieldflow.network.NetworkTelemetry
+import com.sorgeligt.shieldflow.network.adapters.RetrofitContract
+import com.sorgeligt.shieldflow.network.adapters.RetrofitTelemetryNetworkEventsAdapter
 import com.tmdb.movie.network.ApiService
 import dagger.hilt.android.HiltAndroidApp
 import retrofit2.http.DELETE

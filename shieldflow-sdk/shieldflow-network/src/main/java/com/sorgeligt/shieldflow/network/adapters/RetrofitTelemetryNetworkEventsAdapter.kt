@@ -1,8 +1,6 @@
-package com.tmdb.movie;
+package com.sorgeligt.shieldflow.network.adapters
 
-import com.sorgeligt.shieldflow.network.adapters.TelemetryNetworkEventsAdapter
-
-internal class RetrofitTelemetryNetworkEventsAdapter(
+public class RetrofitTelemetryNetworkEventsAdapter(
     private val retrofitContracts: List<RetrofitContract>,
     private val supportedAnnotations: List<Class<out Annotation>>,
 ) : TelemetryNetworkEventsAdapter {
@@ -41,7 +39,7 @@ internal class RetrofitTelemetryNetworkEventsAdapter(
     }
 }
 
-internal class RetrofitContract(
-    val clazz: Class<*>,
-    val basePrefix: String = "",
+public class RetrofitContract(
+    public val clazz: Class<*>,
+    public val basePrefix: String = "",
 )
