@@ -74,6 +74,4 @@ cd TMDB-Movie-main
 ## Проверка
 
 - Если сборка прошла успешно, `telemetry-*` библиотеки будут использоваться внутри проекта без ошибок.
-- В консоли `./gradlew` вы должны увидеть:  
-  `Resolved com.yandex.classifieds:telemetry-android-sdk:3.0.0 from Maven local.`
 
