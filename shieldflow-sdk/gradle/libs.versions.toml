@@ -1,0 +1,30 @@
+[versions]
+
+shieldflowVersion = "1.0.0"
+
+kotlinVersion = "1.9.24"
+
+okhttp3Version = "4.11.0"
+
+androidLifecycleVersion = "2.6.2"
+
+retrofitVersion = "2.9.0"
+
+gsonConverterVersion = "2.9.0"
+
+[libraries]
+
+kotlinGradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinVersion" }
+
+okhttp3 = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp3Version" }
+
+androidLifecycleCommon = { module = "androidx.lifecycle:lifecycle-common", version.ref = "androidLifecycleVersion" }
+
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofitVersion" }
+
+retrofitGson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "gsonConverterVersion" }
+
+
+[plugins]
+
+kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlinVersion" }
