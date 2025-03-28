@@ -6,6 +6,7 @@ import com.franmontiel.persistentcookiejar.PersistentCookieJar
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
 import com.google.gson.Gson
+import com.sorgeligt.shieldflow.network.NetworkTelemetry
 import com.tmdb.movie.network.ApiService
 import com.tmdb.movie.network.TMDBNetworkInterceptor
 import com.tmdb.movie.utils.BASE_TMDB_URL
@@ -36,10 +37,12 @@ object NetworkModule {
         val logInterceptor = HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
         }
-        return OkHttpClient.Builder()
-            .cookieJar(cookieJar)
-            .addNetworkInterceptor(TMDBNetworkInterceptor(context, Gson()))
-            .addNetworkInterceptor(logInterceptor)
+        return NetworkTelemetry.measure(
+            OkHttpClient.Builder()
+                .cookieJar(cookieJar)
+                .addNetworkInterceptor(TMDBNetworkInterceptor(context, Gson()))
+                .addNetworkInterceptor(logInterceptor)
+        )
             .build()
     }
 

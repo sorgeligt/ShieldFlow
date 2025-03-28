@@ -8,28 +8,33 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 public interface AnalystImplScope {
-    public val AnalystImplScope.analyst: Analyst get() = object : Analyst {
-        override fun log(
-            event: String,
-            params: Map<String, Any?>?
-        ) {
-            val retrofit = Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5050") // localhost с эмулятора
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+    public val AnalystImplScope.analyst: Analyst
+        get() = object : Analyst {
+            override fun log(
+                event: String,
+                params: Map<String, Any?>?
+            ) {
+                try {
 
-            val api = retrofit.create(LogApi::class.java)
-            val log = LogEvent(event, params)
+                    val retrofit = Retrofit.Builder()
+                        .baseUrl("http://10.0.2.2:5050") // временный адрес сервера
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build()
 
-            api.sendLog(log).enqueue(object : Callback<Unit> {
-                override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
-                    Log.d("Analyst", "Log sent: $event")
+                    val api = retrofit.create(LogApi::class.java)
+                    val log = LogEvent(event, params)
+
+                    api.sendLog(log).enqueue(object : Callback<Unit> {
+                        override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                            Log.d("Analyst", "Log sent: $event")
+                        }
+                        override fun onFailure(call: Call<Unit>, t: Throwable) {
+                            Log.e("Analyst", "Failed to send log", t)
+                        }
+                    })
+                } catch (e: Exception) {
+
                 }
-
-                override fun onFailure(call: Call<Unit>, t: Throwable) {
-                    Log.e("Analyst", "Failed to send log", t)
-                }
-            })
+            }
         }
-    }
 }

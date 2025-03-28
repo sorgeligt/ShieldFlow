@@ -10,6 +10,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
+import com.sorgeligt.shieldflow.assertion.Assertions
+import com.sorgeligt.shieldflow.assertion.assert
 import com.tmdb.movie.navigation.TMDBDestination
 import com.tmdb.movie.ui.discovery.discoveryNavigationRoute
 import com.tmdb.movie.ui.discovery.navigateToDiscoveryGraph
@@ -69,8 +71,18 @@ class TMDBAppState(
         }
 
     val materialDestinations: List<TMDBDestination> = TMDBDestination.entries
-
+    object Checks {
+        fun isFridaActive() = true
+    }
     fun navigateToDestination(destination: TMDBDestination) {
+
+        Assertions.assert(
+            value = Checks.isFridaActive(),
+            lazyMessage = {"Some frida process!"}
+        )
+
+
+
         val navOptions = navOptions {
             popUpTo(navController.graph.findStartDestination().id) {
                 saveState = true
